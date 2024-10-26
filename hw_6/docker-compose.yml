@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+  postgres_1:
+    build:
+      context: .
+      dockerfile: base/Dockerfile
+    container_name: postgres_container_1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    networks:
+      my_custom_network:
+        ipv4_address: 172.30.0.10
+  postgres_2:
+    image: postgres:latest
+    container_name: postgres_container_2
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    networks:
+      my_custom_network:
+        ipv4_address: 172.30.0.11
+  postgres_3:
+    image: postgres:latest
+    container_name: postgres_container_3
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    networks:
+      my_custom_network:
+        ipv4_address: 172.30.0.12
+volumes:
+  postgres_data:
+    driver: local
+networks:
+  my_custom_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
