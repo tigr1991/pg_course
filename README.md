@@ -19,3 +19,5 @@
 [ДЗ 9 (🟢 принято)](hw_9.md) // Jsonb
 
 [ДЗ 10 (🟡 ожидание)](hw_10.md) // Window function
+
+[ДЗ 11 (🟡 ожидание)](hw_11.md) // Migrations
